@@ -43,12 +43,17 @@ struct ContentView: View {
         } // end VStack
         .preferredColorScheme(.dark)
         .alert(isPresented: $gameOver) {
-            Alert(title: Text(winMessage))
+            Alert(title: Text(winMessage), dismissButton: .destructive(Text("Play Again"), action: {
+                withAnimation {
+                    moves = Array(repeating: "", count: 9)
+                    gameOver = false
+                }
+            }))
         }
         .onChange(of: moves) { oldValue, newValue in
             checkForWinner()
         }
-    }
+    } // end View
     private func checkForWinner() {
         checkLine(a: 0, b: 1, c: 2)
         checkLine(a: 3, b: 4, c: 5)
