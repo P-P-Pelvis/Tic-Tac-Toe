@@ -13,18 +13,23 @@ struct ContentView: View {
         VStack {
             LazyVGrid(columns: Array(repeating: GridItem(.fixed(120)), count: 3)) {
                 ForEach(0..<9) { index in
-                    Color.blue
+                    ZStack {
+                        Color.blue
+                        Text("X")
+                            .font(.system(size: 90))
+                            .fontWeight(.heavy)
+                    } // end ZStack
                         .frame(width: 120, height: 120, alignment: .center)
                         .cornerRadius(30)
-                }
+                } // end ForEach Loop
             }
             Text("Tic Tac Toe")
                 .font(.title)
                 .bold()
-        } // VStack
+        } // end VStack
         .preferredColorScheme(.dark)
     }
-} // ContenView
+} // end ContenView
 
 #Preview {
     ContentView()
