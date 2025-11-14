@@ -8,18 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var moves = Array(repeating: "", count: 9)
     var body: some View {
         VStack {
             LazyVGrid(columns: Array(repeating: GridItem(.fixed(120)), count: 3)) {
-                Text("X")
-                Text("X")
-                Text("X")
-                Text("X")
-                Text("X")
-                Text("X")
-                Text("X")
-                Text("X")
-                Text("X")
+                ForEach(0..<9) { index in
+                    Color.blue
+                        .frame(width: 120, height: 120, alignment: .center)
+                        .cornerRadius(30)
+                }
             }
             Text("Tic Tac Toe")
                 .font(.title)
