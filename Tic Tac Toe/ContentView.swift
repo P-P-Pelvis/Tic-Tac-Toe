@@ -15,12 +15,15 @@ struct ContentView: View {
                 ForEach(0..<9) { index in
                     ZStack {
                         Color.blue
-                        Text("X")
+                        Text(moves[index])
                             .font(.system(size: 90))
                             .fontWeight(.heavy)
                     } // end ZStack
                         .frame(width: 120, height: 120, alignment: .center)
                         .cornerRadius(30)
+                        .onTapGesture {
+                            moves[index] = "X"
+                        }
                 } // end ForEach Loop
             }
             Text("Tic Tac Toe")
